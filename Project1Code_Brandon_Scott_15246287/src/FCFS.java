@@ -28,22 +28,24 @@ public class FCFS { //made by Brandon Scott
 	    taskArray[3]= T4;
 	    taskArray[4]= T5;
 	    
-		System.out.println("FCFS"); //Print out the name of the scheduling algorithm
-		
+		System.out.println("FCFS:"); //Print out the name of the scheduling algorithm
+		double previousValue=0.0;
 		for(int i = 0; i<taskArray.length;i++) { //Checks if the first element is REALLY the first element, so it knows to place a zero at 
-			double previousValue = 0.0;
+		
 			if(taskArray[i]==T1) {  //the beginning, else get the last term of the array, and use that as the beginning.
-		System.out.println(taskArray[i].getName() + "[" + "0-" + taskArray[i].getBurst() + "]");
+		System.out.print(taskArray[i].getName() + "[" + "0-" + taskArray[i].getBurst() + "],");
 		previousValue = taskArray[i].getBurst();
 			}
 			else{
-				previousValue = taskArray[i-1].getBurst()+ taskArray[i].getBurst();
-			System.out.println(taskArray[i].getName() + "[" + taskArray[i-1].getBurst() + "-" + previousValue + "]");
+			
+			System.out.print(taskArray[i].getName() + "[" + previousValue);
+			previousValue +=  taskArray[i].getBurst();
+			System.out.print("-" + previousValue + "],");
 		
 			}
 		}
 		
-        
+        System.out.println(" ");
 		System.out.println(computeAvgWaitTime(T1, T2, T3, T4, T5));
 		System.out.println(computeAvgTurnaround(T1, T2, T3, T4, T5));
         
