@@ -10,7 +10,7 @@ public class FCFS { //made by Brandon Scott
 	
 	public static String computeAvgTurnaround(Task T1, Task T2, Task T3, Task T4, Task T5){
 		
-		double avgTurnaroundTime = ((T1.getBurst() - 0.00) + (T2.getBurst()-T1.getBurst()) + (T3.getBurst() - T2.getBurst()) + (T4.getBurst() - T3.getBurst()) + (T5.getBurst() - T4.getBurst()))/5;
+		double avgTurnaroundTime = ((T1.getBurst()) + (T1.getBurst()+T2.getBurst()) + (T1.getBurst() + T2.getBurst() + T3.getBurst()) + (T1.getBurst() + T2.getBurst() + T3.getBurst() + T4.getBurst()))/5;
 		return "Avg. turnaround time: " + avgTurnaroundTime;	
 	} 
 
